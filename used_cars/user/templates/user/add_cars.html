@@ -1,0 +1,240 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'user/css/register.css' %}">
+<link rel="stylesheet" href="{% static 'user/css/main.css' %}">
+<script src="{% static 'user/js/script.js' %}" type="text/javascript"></script>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <a class="navbar-brand" href="/home">
+                <img src="{% static 'user/images/logo.png' %}" alt="Logo" style="width:120px;">
+            </a>
+            <h3><span class="text-danger">USED</span><span class="text-dark">CARS</span></h3>
+            <h3>Welcome </h3>
+            <p>Add your Cars</p>
+        </div>
+        <div class="col-md-9 register-right">
+            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active btn" id="" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true">Seller</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">Add Cars</h3>
+                    <form method="POST" action="add_cars" class="needs-validation" enctype="multipart/form-data" novalidate >
+                        {% csrf_token %}
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-element">
+                                    <label  class="form-label text-primary">Brand<span class="required-asterisk">*</span>
+                                    </label>
+                                    <div class="form-group">
+                                        <input required name="brand" type="text" class="form-control" placeholder="brand" value="" />
+                                        <div class="invalid-feedback">
+                                            Please choose a Brand.
+                                        </div>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-element">
+                                    <label  class="form-label text-primary">Model<span class="required-asterisk">*</span>
+                                    </label>
+                                    <div class="form-group">
+                                        <input required name="model" type="text" minlength="" maxlength=""  class="form-control" placeholder="model" value="" />
+                                        <div class="invalid-feedback">
+                                            Please add a valid model.
+                                        </div>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-element">
+                                    <label  class="form-label text-primary">Series<span class="required-asterisk">*</span>
+                                    </label>
+                                    <div class="form-group">
+                                        <input required name="series" type="text" class="form-control" placeholder="series" value="" />
+                                        <div class="invalid-feedback">
+                                            Please add a valid series.
+                                        </div>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-element">
+                                    <label  class="form-label text-primary">Color<span class="required-asterisk">*</span>
+                                    </label>
+                                    <div class="form-group">
+                                        <input required name="color" type="text" class="form-control" placeholder="color" value="" />
+                                        <div class="invalid-feedback">
+                                            Please choose a color.
+                                        </div>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-element">
+                                    <label  class="form-label text-primary">Year<span class="required-asterisk">*</span>
+                                    </label>
+                                    <div class="form-group">
+                                        <input required name="year" minlength="4" maxlength="4" type="text" class="form-control"
+                                               placeholder="year of manufacture" value=""
+                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
+                                        <div class="invalid-feedback">
+                                            Please give a valid year.
+                                        </div>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-element">
+                                    <label  class="form-label text-primary">Kms-Driven<span class="required-asterisk">*</span>
+                                    </label>
+                                    <div class="form-group">
+                                        <input required name="kms" minlength="2" maxlength="20" type="text"
+                                               class="form-control" placeholder="Kilometers Driven" value=""
+                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
+                                        <div class="invalid-feedback">
+                                            Please give a valid kms.
+                                        </div>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-element">
+                                    <label  class="form-label text-primary">Prize<span class="required-asterisk">*</span>
+                                    </label>
+                                    <div class="form-group">
+                                        <input required name="prize" minlength="3" maxlength="10"type="text" class="form-control"
+                                               placeholder="Expected Prize" value=""
+                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
+                                        <div class="invalid-feedback">
+                                            Please give a valid prize.
+                                        </div>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-element">
+                                    <label  class="form-label text-primary">Fuel type<span class="required-asterisk">*</span>
+                                    </label>
+                                    <div class="form-group">
+                                        <input required name="fuel" type="text" class="form-control" placeholder="Fuel Type" value=""
+                                        onkeypress="return allowOnlyLetters(event,this);"/>
+                                        <div class="invalid-feedback">
+                                            Please give a valid Fuel type.
+                                        </div>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-element">
+                                    <label  class="form-label text-primary">Insurance till<span class="required-asterisk">*</span>
+                                    </label>
+                                    <div class="">
+                                        <div class="input-group date" id="datepicker col-md-3">
+                                            <input name="insurance" type="date" class="form-control" id="date" style="width:200px" required/>
+                                            <div class="invalid-feedback">
+                                                Please give a valid date.
+                                            </div>
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-element">
+                                    <label  class="form-label text-primary">Upload image<span class="required-asterisk">*</span>
+                                    </label>
+                                    <div class="form-group">
+                                        <input name="image" class="form-control"  type="file" id="formFile" required>
+                                        <div class="invalid-feedback">
+                                            Please input a valid image.
+                                        </div>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="main-btns">
+                                <input onclick="" class="btnRegister col-4 p-2 m-4" type="reset" value="Cancel">
+                                <input class="btnRegister col-4 p-2 m-4" type="submit" class="btnRegister"  value="Add Car"/>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="{% static 'user/js/script.js' %}" type="text/javascript"></script>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
+<script language="Javascript" type="text/javascript">
+
+    function allowOnlyLetters(e, t) {
+      if (window.event) {
+        var charCode = window.event.keyCode;
+      }
+      else if (e) {
+        var charCode = e.which;
+      }
+      else { return true; }
+      if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+        return true;
+      else if ((charCode == 32)) {
+        return true;
+      }
+      else {
+        alert("Please enter only alphabets");
+        return false;
+</script>
